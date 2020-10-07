@@ -149,59 +149,83 @@ namespace Entra21_test
             return resultado;
         }
 
-        public void Exercicio16(double salario)
+        public double Exercicio16(double salario)
         {
             //Ler o salário de uma pessoa e imprimir o Salário Líquido, de acordo com a redução de imposto descrito ao lado:
             //Menor ou igual a R$600,00 - ISENTO;
-            //Maior que R$600,00 e menor ou igual a R$1.000,00 - 20% desconto;
+            //Maior que R$600,00 e menor ou igual a R$1.200,00 - 20% desconto;
             //Maior que R$1.200,00 e menor ou igual a R$2.000,00 - 25% desconto;
             //Maior que R$2.000,00 - 30% desconto.
 
-            var resultado = "Isento";
-            double salario = 0.0;
-            double desconto1 = (salario - ((salario * 20) / 100));
-            double desconto2 = (salario - ((salario * 25) / 100));
-            double desconto3 = (salario - ((salario * 30) / 100));
-
-            if(salario <= 600.00)
-            {
-                return resultado;
-            }
-            if(salario > 600.00 && salario <= 1000.00)
-            {
-                return desconto1;
-            }
-            if(salario > 1200.00 && salario <= 2000.00)
-            {
-                return desconto2;
-            }
             if(salario > 2000.00)
             {
-                return desconto3;
-            }       
+                return salario - ((salario * 30) / 100); 
+            } 
+            
+            if(salario > 1200.00)
+            {
+                return salario - ((salario * 25) / 100); 
+            } 
+            
+            if(salario > 600.00)
+            {
+                return salario - ((salario * 20) / 100);   
+            }
+
+            return salario;
+
         } 
 
-        public void Exercicio18()
+        public double Exercicio18(int quantidadeMaca)
         {
             //As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia.
             //R$1,00 se forem compradas pelo menos 12.
             //Escreva um programa que leia o número de maçãs compradas,
             //calcule e escreva o custo total da compra.
 
-            int maca = 0;
-            double resultado = 0.0;
-
-            if(maca < 12)
+            if(quantidadeMaca < 12)
             {
-                var resultado = maca * 1.30;
-                return resultado;
+                return quantidadeMaca * 1.30;
             }
+
+            return quantidadeMaca;
+
+        }
+
+        public string Exercicio10(int numero1, int numero2)
+        {
+            // ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior,
+            // ou a mensagem \"A = B\" caso sejam iguais.
+
+            if(numero1 > numero2)
+            {
+                return numero1.ToString() + " é o maior";
+            }
+
+            if( numero1 < numero2)
+            {
+                return numero2.ToString() + " é o maior";
+            }
+
+            return numero1.ToString() + " = " + numero2.ToString();
+
+        }
+
+        public string Exercicio11(int numero1, int numero2)
+        {
+            // Ler 2 números inteiros do teclado. Se o segundo for diferente de zero, 
+            // calcular e imprimir o quociente do primeiro pelo segundo. 
+            // Caso contrário imprimir a mensagem \" DIVISÃO POR ZERO \ 
+
+            if(numero2 == 0 )
+            {
+                return "Divisão por Zero";
+            }
+
             else{
-                var resultado = maca * 1.00;
-                return resultado
+                return numero1.ToString() + " / " + numero2.ToString() + " = " + (numero1 / numero2);
             }
 
         }
-        
     }
 }

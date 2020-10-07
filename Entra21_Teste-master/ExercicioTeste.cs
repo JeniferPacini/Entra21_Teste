@@ -85,18 +85,60 @@ namespace Entra21_test
             }
         }
 
-        [Fact]
-        public void Retorna_o_valor_do_desconto_de_acordo_com_o_salario()
+        [Theory]
+        [InlineData(1250, 937.5)]
+        [InlineData(500, 500)]
+        public void Retorna_o_valor_do_desconto_de_acordo_com_o_salario(double salario, double resultado)
         {
             //A aplicação deve retornar o valor do desconto de acordo com o salario
-            double salario = 600.52;
+
             //setup
             var exercicios = new Exercicios();
             //ação do usuario
             var retorna = exercicios.Exercicio16(salario);
             //resultado
-
+            Assert.Equal(resultado, retorna);
 
         }
+
+        [Theory]
+        [InlineData(15, 15)]
+        [InlineData(10, 13)]
+        public void Retorna_o_valor_total_da_compra_das_macas(int quantidadeMaca, double valorEsperado)
+        {
+            //A aplicação deve retornar o valor total da compra das maças
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio18(quantidadeMaca);
+            Assert.Equal(valorEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(15, 10, "15 é o maior")]
+        [InlineData(8, 17, "17 é o maior")]
+        [InlineData(15, 15, "15 = 15")]
+        public void Retorna_o_maior_numero_ou_se_sao_iguais(int numero1, int numero2, string resultadoEsperado)
+        {
+            // Deve retornar o maior numero entre 2, ou se são iguais
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio10(numero1, numero2);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(20, 0, "Divisão por Zero")]
+        [InlineData(20, 10, "20 / 10 = 2")]
+        public void Retorna_o_quociente_da_divisao(int numero1, int numero2, string valorEsperado)
+        {
+            //Deve retornar o quociente da divisão
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio11(numero1, numero2);
+            Assert.Equal(valorEsperado, resultado);
+        }
+
     }
 }
