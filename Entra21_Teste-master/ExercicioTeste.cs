@@ -72,7 +72,7 @@ namespace Entra21_test
         [Fact]
         public void Retorna_lista_pares_1_a_10()
         {
-            //a aplicação deverá retornar os números de 1 a 10, mas somente os pares
+            //A aplicação deverá retornar os números de 1 a 10, mas somente os pares
             
             var exercicios = new Exercicios();
             var retorna = exercicios.Exercicio01C();
@@ -83,6 +83,20 @@ namespace Entra21_test
             {
                 Assert.Equal(valor_esperado[i], retorna[i]);
             }
+        }
+
+        [Fact]
+        public void Retorna_o_valor_do_desconto_de_acordo_com_o_salario()
+        {
+            //A aplicação deve retornar o valor do desconto de acordo com o salario
+            double salario = 600.52;
+            //setup
+            var exercicios = new Exercicios();
+            //ação do usuario
+            var retorna = exercicios.Exercicio16(salario);
+            //resultado
+
+
         }
     }
 }
