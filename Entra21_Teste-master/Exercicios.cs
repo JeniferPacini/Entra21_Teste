@@ -225,7 +225,69 @@ namespace Entra21_test
             else{
                 return numero1.ToString() + " / " + numero2.ToString() + " = " + (numero1 / numero2);
             }
+        }
+
+        public bool Exercicio09(int numero1, int numero2, int numero3)
+        {
+            //Fazer um algoritmo para ler 03 números reais do teclado e verificar se o  
+		    //primeiro é maior que a soma dos outros dois.
+
+            if(numero1 == numero2 + numero3)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool Exercício08(int numero1, int numero2)
+        {
+            //Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+
+            if(numero1 % numero2 == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public double[] Exercicio01(double[] arrayA, double[] arrayB, double[] arrayC)
+        {
+            //Ler dois arrays A e B com 10 elementos. construir uma array , onde cada elemento de C é a 
+            //subtração dos elementos de A e B
+
+            for(int i = 0; i < arrayB.Length; i++)
+            {
+                arrayC[i] = arrayA[i] - arrayB[i];
+            }
+
+            return arrayC;
 
         }
+
+        
+        public int Exercicio02()
+        {
+            //Imprimir a soma dos números inteiros de 1 a 100
+
+            int soma = 0;
+
+            for(int i = 0; i < 101; i++)
+            {
+                soma += i;
+            }
+            return soma;
+        }
+        
+        // public int[] Exercicio17(int[] numero, int[] valorTabuada)
+        // {
+        //     // Imprimir a tabuada de acordo com o numero fornecido
+
+        //     for(int i = 1; i < 11; i++)
+        //     {
+        //         valorTabuada.Add(numero * i);
+        //     }
+        //     return valorTabuada;
+        // }
     }
 }

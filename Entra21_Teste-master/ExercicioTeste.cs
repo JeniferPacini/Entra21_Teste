@@ -140,5 +140,62 @@ namespace Entra21_test
             Assert.Equal(valorEsperado, resultado);
         }
 
+        [Theory]
+        [InlineData(15,10,5,true)]
+        [InlineData(12,7,9,false)]
+        public void Retonar_se_numero1_é_a_soma_do_numero2_e_numero3(int numero1, int numero2, int numero3, bool retornoEsperado)
+        {
+            //Deve retornar se o numero 1 é a soma do numero 2 e 3
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio09(numero1, numero2, numero3);
+            Assert.Equal(retornoEsperado, resultado);
+        }
+
+        [Theory]
+        [InlineData(10,2, true)]
+        [InlineData(15,7, false)]
+        public void Retorna_se_numero1_é_multiplo_de_numero2(int numero1, int numero2, bool respostaEsperada)
+        {
+            //Deve retornar se numero 1 é multiplo de numero 2
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio08(numero1, numero2);
+            Assert.Equal(respostaEsperada, resultado);
+        }
+        [Theory]
+        [InlineData(new double[10]{5,10,15,20,25,30,35,40,45,50},new double[10]{1,2,3,4,5,6,7,8,9,10},
+        new double[10]{4,8,12,16,20,24,28,32,36,40})]
+        public void Retona_a_subtração_do_arrayA_pelo_arrayB(double[] arrayA, double[] arrayB, double[] arrayC)
+        {
+            //deve retornar um arrayC de acordo com a subtração do array A pelo B
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio01(arrayA, arrayB, arrayC);
+            Assert.Equal(arrayC, resultado);
+        }
+
+        [Fact]
+        public void Retonar_a_soma_de_1_a_100()
+        {
+            //Deve retornar a soma dos numeros de 1 a 100
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio02();
+            Assert.Equal(5050, resultado);
+        }
+        
+        // [Theory]
+        // [InlineData(new int[10]{2,2,4,6,8,10,12,14,16,18,20})]
+        // [InlineData(new int[10]{5,5,10,15,20,25,30,35,40,45,50})]
+        // public void Retorna_a_tabuada(int numero, int valorTabuada)
+        // {
+        //     //Deve retornar a tabuada do numero fornecido 
+        //     var exercicios = new Exercicios();
+        //     var resultado = exercicios.Exercicio17(numero);
+        //     Assert.Equal(valorTabuada, resultado);
+
+        // }
+
     }
 }
