@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Xunit;
 
 namespace Entra21_test
 {
@@ -316,14 +315,81 @@ namespace Entra21_test
 
             for(int i = 0; i < arrayA.Length; i++)
             {
-                if(arrayA[i] == arrayB[i])
+                if(arrayA[i] != arrayB[i])
                 {
-                    return true;
+                   return false;
+                }
+                
+            }
+            return true;
+            
+        }
+
+        public int Exercicio2_04(int[] matrizA)
+        {
+            //Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
+            // A do tipo vetor. No final, apresente o total da soma de todos os elementos 
+            // que sejam impares.
+            int soma = 0; 
+            for(int i = 0; i < matrizA.Length; i++)
+            {
+                if(matrizA[i] % 2 != 0)
+                {
+                    soma += matrizA[i];
+
                 }
             }
 
-            return false;
+            return soma;
         }
-        
+
+        public int Exercicio2_05(int[] arrayA )
+        {
+            //Contar quantos valores de um vetor de 10 posições são positivos.
+            
+            int numPositivo = 0;
+
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] > 0)
+                {
+                    numPositivo ++;
+                }
+            }
+            return numPositivo;
+        }
+
+        public int Exercicio2_07(int[] arrayA)
+        {
+            //Crie e popule um vetor A e imprima na tela o número de vezes que existe 
+            //um número residindo na mesma posição do vetor que seu valor numérico.
+
+            int numIgual = 0;
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] == i)
+                {
+                    numIgual ++;
+                }
+            }
+
+            return numIgual;
+        }
+            
+        public int Exercicio2_08(string[] arrayA)
+        {
+            //Crie um vetor de strings de 10 posições onde cada posição
+            //recebe uma letra do alfabeto. No final, imprima quantas destas são vogais.
+
+            var letras = 0;
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] == "a" || arrayA[i] == "e" || arrayA[i] == "i" || arrayA[i] == "o" || arrayA[i] == "u")
+                {
+                    letras++;
+                }
+            }
+            return letras;
+        }
     }
 }
