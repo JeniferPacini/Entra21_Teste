@@ -224,7 +224,6 @@ namespace Entra21_test
         }
 
         [Theory]
-<<<<<<< HEAD:Tests/ExercicioTeste.cs
         [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})]
         public void Deve_inverter_os_valores_dos_arrays(int[] arrayA,int[] arrayB, int[] resultadoEsperadoA, int[] resultadoEsperadoB)
         {
@@ -250,8 +249,6 @@ namespace Entra21_test
         // }
 
         [Theory]
-=======
->>>>>>> f1e3a9bae159d16ca2a38d42716cd8b664e8efc5:Entra21_Teste-master/Entra21_Teste-master/ExercicioTeste.cs
         [InlineData(new int[5]{2,2,3,5,2}, 8)]
         [InlineData(new int[5]{2,1,3,5,2}, 9)]
         public void Retorna_a_soma_dos_numeros_impares_de_uma_lista(int[] matrizA,int resultadoEsperado)
@@ -259,7 +256,6 @@ namespace Entra21_test
             var exercicios = new Exercicios();
             var resultado = exercicios.Exercicio2_04(matrizA);
             Assert.Equal(resultadoEsperado, resultado);
-<<<<<<< HEAD:Tests/ExercicioTeste.cs
 
         }
         
@@ -297,46 +293,8 @@ namespace Entra21_test
             var exercicios = new Exercicios();
             var resultado = exercicios.Exercicio2_08(arrayA);
             Assert.Equal(resultadoEsperado, resultado);
-=======
->>>>>>> f1e3a9bae159d16ca2a38d42716cd8b664e8efc5:Entra21_Teste-master/Entra21_Teste-master/ExercicioTeste.cs
 
         }
-        
-        [Theory]
-        [InlineData(new int[5]{-2,5,-6,3,7}, 3)]
-        [InlineData(new int[5]{-2,5,-6,3,-7}, 2)]
-        public void Retorna_quantos_numeros_sao_positivos(int[] arrayA, int resultadoEsperado)
-        {
-            //Deve retornar quantos numeros de uma lista são positivos 
-
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio2_05(arrayA);
-            Assert.Equal(resultadoEsperado, resultado);
-        }
-
-        [Theory]
-        [InlineData(new int[5]{0,3,4,7,4},2)]
-        [InlineData(new int[4]{1,5,2,6},1)]
-        public void Retorna_quantos_numeros_estao_na_posicao_correspondete_ao_seu_valor(int[] arrayA, int resultadoEsperado)
-        {
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio2_07(arrayA);
-            Assert.Equal(resultadoEsperado, resultado);
-
-        }
-
-        // [Theory]
-        // [InlineData(new string[10]{"a","f","g","e","i","r" },)]
-        // [InlineData()]
-        // public void Retorna_quantas_vogais_tem_no_array(string[] arrayA, int resultadoEsperado)
-        // {
-        //     //Deve retornar quantas vogais existem no array
-
-        //     var exercicios = new Exercicios();
-        //     var resultado = exercicios.Exercicio2_08(arrayA);
-        //     Assert.Equal(resultadoEsperado, resultado);
-
-        // }
 
         [Theory]
         [InlineData(new string[9]{"p","d","i","l","z","g","z","q","a"}, "pizza")]
