@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Xunit;
 
 namespace Entra21_test
 {
@@ -316,14 +315,148 @@ namespace Entra21_test
 
             for(int i = 0; i < arrayA.Length; i++)
             {
-                if(arrayA[i] == arrayB[i])
+                if(arrayA[i] != arrayB[i])
                 {
-                    return true;
+                   return false;
+                }
+                
+            }
+            return true;
+            
+        }
+
+        public (int[], int[]) Exercicio2_01(int[] arrayA, int[] arrayB)
+        {
+            //Popule dois vetores com 10 valores cada. 
+            //Após esta operação, troque o conteúdo dos vetores.
+
+            int[] arrayC = new int[arrayA.Length];
+
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                arrayC[i] = arrayA[i];
+                arrayA[i] = arrayB[i];
+                arrayB[i] = arrayC[i];
+            }
+
+            return (arrayA, arrayB);
+        }
+
+        // public bool Exercicio2_02(int[] arrayA)
+        // {
+        //     //receber um vetor com 10 valores. Após esta operação, 
+        //     //informe se há ou não números repetidos nesse vetor.
+
+        //     for(int i = 0; i < arrayA.Length; i++)
+        //     {
+        //         if(arrayA[i] == arrayA[i])
+        //         {
+        //             return true;
+        //         }
+               
+        //     }
+        //     return false;
+        // }
+
+        // public void Exercicio2_03() 
+        // {
+        //     //Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo
+        //     // produto lançado no mercado. Para isso, forneceu-se o sexo do entrevistado e a sua resposta
+        //     // (sim ou não). Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
+        //     // • O número de pessoas que responderam sim;
+        //     // • O número de pessoas que responderam não;
+        //     // • A percentagem de pessoas do sexo feminino que responderam sim;
+        //     // • A percentagem de pessoas do sexo masculino que responderam não;
+        // }
+
+        public int Exercicio2_04(int[] matrizA)
+        {
+            //Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
+            // A do tipo vetor. No final, apresente o total da soma de todos os elementos 
+            // que sejam impares.
+            int soma = 0; 
+            for(int i = 0; i < matrizA.Length; i++)
+            {
+                if(matrizA[i] % 2 != 0)
+                {
+                    soma += matrizA[i];
+
                 }
             }
 
-            return false;
+            return soma;
         }
-        
+
+        public int Exercicio2_05(int[] arrayA )
+        {
+            //Contar quantos valores de um vetor de 10 posições são positivos.
+            
+            int numPositivo = 0;
+
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] > 0)
+                {
+                    numPositivo ++;
+                }
+            }
+            return numPositivo;
+        }
+
+        // public void Exercicio2_06()
+        // {
+        //     //Ler um vetor de 10 posições 
+        //     //Escrever a seguir o valor do maior elemento de Q 
+        //     //e a respectiva posição que ele ocupa no vetor.
+        // }
+
+        public int Exercicio2_07(int[] arrayA)
+        {
+            //Crie e popule um vetor A e imprima na tela o número de vezes que existe 
+            //um número residindo na mesma posição do vetor que seu valor numérico.
+
+            int numIgual = 0;
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] == i)
+                {
+                    numIgual ++;
+                }
+            }
+
+            return numIgual;
+        }
+            
+        public int Exercicio2_08(string[] arrayA)
+        {
+            //Crie um vetor de strings de 10 posições onde cada posição
+            //recebe uma letra do alfabeto. No final, imprima quantas destas são vogais.
+
+            var letras = 0;
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] == "a" || arrayA[i] == "e" || arrayA[i] == "i" || arrayA[i] == "o" || arrayA[i] == "u")
+                {
+                    letras++;
+                }
+            }
+            return letras;
+        }
+
+        public string Exercicio2_09(string[] arrayA)
+        {
+            //Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. 
+            //No final, imprima a string resultante da soma das strings que residem em índices pares.
+
+            string palavra = "";
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(i % 2 ==0)
+                {
+                    palavra += arrayA[i];
+                }
+            }
+            return palavra;
+        }
     }
 }

@@ -185,17 +185,126 @@ namespace Entra21_test
             Assert.Equal(5050, resultado);
         }
         
-        // [Theory]
-        // [InlineData(new int[10]{2,2,4,6,8,10,12,14,16,18,20})]
-        // [InlineData(new int[10]{5,5,10,15,20,25,30,35,40,45,50})]
-        // public void Retorna_a_tabuada(int numero, int valorTabuada)
-        // {
-        //     //Deve retornar a tabuada do numero fornecido 
-        //     var exercicios = new Exercicios();
-        //     var resultado = exercicios.Exercicio17(numero);
-        //     Assert.Equal(valorTabuada, resultado);
+        [Theory]
+        [InlineData(2,new int[10]{2,4,6,8,10,12,14,16,18,20})]
+        [InlineData(5,new int[10]{5,10,15,20,25,30,35,40,45,50})]
+        public void Retorna_a_tabuada(int numero, int[] valorEsperado)
+        {
+            //Deve retornar a tabuada do numero fornecido 
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio17(numero);
+            Assert.Equal(valorEsperado, resultado);
 
+        }
+
+        [Theory]
+        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 7, true)]
+        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 15, false)]
+        public void Retorna_se_numero_existe_no_array(int[] arrayA, int numero, bool valorEsperado)
+        {
+            //Deve retornar se o numero existe no array
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio3(arrayA, numero);
+            Assert.Equal(valorEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,6,4,8}, true)]
+        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,9,4,8}, false)]
+        public void Retorna_se_arrayA_igual_arrayB(int[] arrayA, int[] arrayB, bool resultadoEsperado)
+        {
+            //Deve retornar se o arrayA é igual ao arrayB
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio4(arrayA, arrayB);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})]
+        public void Deve_inverter_os_valores_dos_arrays(int[] arrayA,int[] arrayB, int[] resultadoEsperadoA, int[] resultadoEsperadoB)
+        {
+            //Deve inverter os valores dos 2 arrays
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_01(arrayA, arrayB);
+            Assert.Equal(resultadoEsperadoA, resultado.Item1);
+            Assert.Equal(resultadoEsperadoB, resultado.Item2);
+
+        }
+
+        // [Theory]
+        // [InlineData(new int[10]{1, 2, 8, 4, 1, 6, 7, 8, 9, 10}, true)]
+        // // [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, false)]
+        // public void Deve_retornar_se_tem_numeros_repetidos(int[] arrayA, bool resultadoEsperado)
+        // {
+        //     //Deve retornar se existe numeros repetidos no array
+
+        //     var exercicios = new Exercicios();
+        //     var resultado = exercicios.Exercicio2_02(arrayA);
+        //     Assert.Equal(resultadoEsperado, resultado);
         // }
+
+        [Theory]
+        [InlineData(new int[5]{2,2,3,5,2}, 8)]
+        [InlineData(new int[5]{2,1,3,5,2}, 9)]
+        public void Retorna_a_soma_dos_numeros_impares_de_uma_lista(int[] matrizA,int resultadoEsperado)
+        {
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_04(matrizA);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+        
+        [Theory]
+        [InlineData(new int[5]{-2,5,-6,3,7}, 3)]
+        [InlineData(new int[5]{-2,5,-6,3,-7}, 2)]
+        public void Retorna_quantos_numeros_sao_positivos(int[] arrayA, int resultadoEsperado)
+        {
+            //Deve retornar quantos numeros de uma lista são positivos 
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_05(arrayA);
+            Assert.Equal(resultadoEsperado, resultado);
+        }
+
+        [Theory]
+        [InlineData(new int[5]{0,3,4,7,4},2)]
+        [InlineData(new int[4]{1,5,2,6},1)]
+        public void Retorna_quantos_numeros_estao_na_posicao_correspondete_ao_seu_valor(int[] arrayA, int resultadoEsperado)
+        {
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_07(arrayA);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(new string[10]{"a","f","g","e","i","r","t","u","g","k"},4)]
+        [InlineData(new string[10]{"a","f","g","e","i","r","a","u","g","k"},5)]
+        
+        public void Retorna_quantas_vogais_tem_no_array(string[] arrayA, int resultadoEsperado)
+        {
+            //Deve retornar quantas vogais existem no array
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_08(arrayA);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+
+        [Theory]
+        [InlineData(new string[9]{"p","d","i","l","z","g","z","q","a"}, "pizza")]
+        [InlineData(new string[11]{"b","d","a","l","t","g","a","q","t",",m","a"}, "batata")]
+        public void Deve_retornar_o_resultado_da_palavra_das_strings_pares(string[] arrayA, string resultadoEsperado)
+        {
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_09(arrayA);
+            Assert.Equal(resultadoEsperado, resultado);
+        }
 
     }
 }
