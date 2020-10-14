@@ -325,6 +325,7 @@ namespace Entra21_test
             
         }
 
+<<<<<<< HEAD:Domain/Exercicios.cs
         public (int[], int[]) Exercicio2_01(int[] arrayA, int[] arrayB)
         {
             //Popule dois vetores com 10 valores cada. 
@@ -369,6 +370,8 @@ namespace Entra21_test
         //     // • A percentagem de pessoas do sexo masculino que responderam não;
         // }
 
+=======
+>>>>>>> f1e3a9bae159d16ca2a38d42716cd8b664e8efc5:Entra21_Teste-master/Entra21_Teste-master/Exercicios.cs
         public int Exercicio2_04(int[] matrizA)
         {
             //Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz 
@@ -403,6 +406,7 @@ namespace Entra21_test
             return numPositivo;
         }
 
+<<<<<<< HEAD:Domain/Exercicios.cs
         // public void Exercicio2_06()
         // {
         //     //Ler um vetor de 10 posições 
@@ -410,6 +414,8 @@ namespace Entra21_test
         //     //e a respectiva posição que ele ocupa no vetor.
         // }
 
+=======
+>>>>>>> f1e3a9bae159d16ca2a38d42716cd8b664e8efc5:Entra21_Teste-master/Entra21_Teste-master/Exercicios.cs
         public int Exercicio2_07(int[] arrayA)
         {
             //Crie e popule um vetor A e imprima na tela o número de vezes que existe 
@@ -441,6 +447,7 @@ namespace Entra21_test
                 }
             }
             return letras;
+<<<<<<< HEAD:Domain/Exercicios.cs
         }
 
         public string Exercicio2_09(string[] arrayA)
@@ -457,6 +464,8 @@ namespace Entra21_test
                 }
             }
             return palavra;
+=======
+>>>>>>> f1e3a9bae159d16ca2a38d42716cd8b664e8efc5:Entra21_Teste-master/Entra21_Teste-master/Exercicios.cs
         }
     }
 }
