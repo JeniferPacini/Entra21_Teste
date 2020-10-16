@@ -6,41 +6,52 @@ namespace Entra21_test
 {
     public class ExercicioTeste
     {
-        [Theory]
-        [InlineData( 20, 3, 8.0, 8760)]
-       
-        public void Gasto_de_um_fumante(int cigarroDia, int anos, double preco, double result)
+         [Theory]
+        [InlineData(new double[10]{5,10,15,20,25,30,35,40,45,50},new double[10]{1,2,3,4,5,6,7,8,9,10},
+        new double[10]{4,8,12,16,20,24,28,32,36,40})]
+        public void Retona_a_subtração_do_arrayA_pelo_arrayB(double[] arrayA, double[] arrayB, double[] arrayC)
         {
+            //deve retornar um arrayC de acordo com a subtração do array A pelo B
+
             var exercicios = new Exercicios();
-            double resultado = exercicios.Exercicio7(cigarroDia, anos, preco);
-            cigarroDia = 20;
-            anos = 3;
-            Assert.Equal(result, resultado);
+            var resultado = exercicios.Exercicio01(arrayA, arrayB, arrayC);
+            Assert.Equal(arrayC, resultado);
         }
 
-        [Fact]
-        public void Porcent_mulheres()
-        {
-            var exercicios = new Exercicios();
-            var Lista = new List<int>(){15,25,30,28,40};
-            int resultado = exercicios.Exercicio5(Lista);
-            Assert.Equal(60, resultado);
-        }
+        //exercicio02
 
         [Theory]
-        [InlineData(10 , 5 , true)]
-        [InlineData(15 , 4 , false)]
-        public void Retorna_se_x_multiplo_y(int numero1, int numero2, bool result)
+        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 7, true)]
+        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 15, false)]
+        public void Retorna_se_numero_existe_no_array(int[] arrayA, int numero, bool valorEsperado)
         {
-
-            //Quando a aplicação receber dois numeros inteiros, deve retornar True se o primeiro numero
-            //For multiplo do segundo numero
+            //Deve retornar se o numero existe no array
 
             var exercicios = new Exercicios();
-            var multiplo = exercicios.Exercicio08( numero1, numero2); 
-            Assert.Equal(result, multiplo);
+            var resultado = exercicios.Exercicio3(arrayA, numero);
+            Assert.Equal(valorEsperado, resultado);
+
         }
 
+        [Theory]
+        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,6,4,8}, true)]
+        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,9,4,8}, false)]
+        public void Retorna_se_arrayA_igual_arrayB(int[] arrayA, int[] arrayB, bool resultadoEsperado)
+        {
+            //Deve retornar se o arrayA é igual ao arrayB
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio4(arrayA, arrayB);
+            Assert.Equal(resultadoEsperado, resultado);
+
+        }
+
+        //exercicio05
+
+        //Fim test lista 1
+
+        //inicio test lista 2
+        
         [Fact]
         public void Retorna_lista_1_a_10()
         //A aplicação deverá retornar todos os número de 1 a 10
@@ -84,6 +95,62 @@ namespace Entra21_test
                 Assert.Equal(valor_esperado[i], retorna[i]);
             }
         }
+
+        [Fact]
+        public void Retonar_a_soma_de_1_a_100()
+        {
+            //Deve retornar a soma dos numeros de 1 a 100
+
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio02();
+            Assert.Equal(5050, resultado);
+        }
+
+        //test exercicio03
+
+        //test exercicio04
+
+        [Fact]
+        public void Porcent_mulheres()
+        {
+            var exercicios = new Exercicios();
+            var Lista = new List<int>(){15,25,30,28,40};
+            int resultado = exercicios.Exercicio5(Lista);
+            Assert.Equal(60, resultado);
+        }
+
+        [Theory]
+        [InlineData( 20, 3, 8.0, 8760)]
+       
+        public void Gasto_de_um_fumante(int cigarroDia, int anos, double preco, double result)
+        {
+            var exercicios = new Exercicios();
+            double resultado = exercicios.Exercicio7(cigarroDia, anos, preco);
+            cigarroDia = 20;
+            anos = 3;
+            Assert.Equal(result, resultado);
+        }
+
+        //fim test lista2
+
+    
+
+ 
+
+        [Theory]
+        [InlineData(10 , 5 , true)]
+        [InlineData(15 , 4 , false)]
+        public void Retorna_se_x_multiplo_y(int numero1, int numero2, bool result)
+        {
+
+            //Quando a aplicação receber dois numeros inteiros, deve retornar True se o primeiro numero
+            //For multiplo do segundo numero
+
+            var exercicios = new Exercicios();
+            var multiplo = exercicios.Exercicio08( numero1, numero2); 
+            Assert.Equal(result, multiplo);
+        }
+
 
         [Theory]
         [InlineData(1250, 937.5)]
@@ -163,27 +230,8 @@ namespace Entra21_test
             var resultado = exercicios.Exercicio08(numero1, numero2);
             Assert.Equal(respostaEsperada, resultado);
         }
-        [Theory]
-        [InlineData(new double[10]{5,10,15,20,25,30,35,40,45,50},new double[10]{1,2,3,4,5,6,7,8,9,10},
-        new double[10]{4,8,12,16,20,24,28,32,36,40})]
-        public void Retona_a_subtração_do_arrayA_pelo_arrayB(double[] arrayA, double[] arrayB, double[] arrayC)
-        {
-            //deve retornar um arrayC de acordo com a subtração do array A pelo B
-
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio01(arrayA, arrayB, arrayC);
-            Assert.Equal(arrayC, resultado);
-        }
-
-        [Fact]
-        public void Retonar_a_soma_de_1_a_100()
-        {
-            //Deve retornar a soma dos numeros de 1 a 100
-
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio02();
-            Assert.Equal(5050, resultado);
-        }
+       
+       
         
         [Theory]
         [InlineData(2,new int[10]{2,4,6,8,10,12,14,16,18,20})]
@@ -197,31 +245,9 @@ namespace Entra21_test
 
         }
 
-        [Theory]
-        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 7, true)]
-        [InlineData(new int[10]{2,5,4,7,5,6,8,55,2,10}, 15, false)]
-        public void Retorna_se_numero_existe_no_array(int[] arrayA, int numero, bool valorEsperado)
-        {
-            //Deve retornar se o numero existe no array
+        
 
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio3(arrayA, numero);
-            Assert.Equal(valorEsperado, resultado);
-
-        }
-
-        [Theory]
-        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,6,4,8}, true)]
-        [InlineData(new int[5]{2,5,6,4,8}, new int[5]{2,5,9,4,8}, false)]
-        public void Retorna_se_arrayA_igual_arrayB(int[] arrayA, int[] arrayB, bool resultadoEsperado)
-        {
-            //Deve retornar se o arrayA é igual ao arrayB
-
-            var exercicios = new Exercicios();
-            var resultado = exercicios.Exercicio4(arrayA, arrayB);
-            Assert.Equal(resultadoEsperado, resultado);
-
-        }
+        
 
         [Theory]
         [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})]
@@ -236,17 +262,17 @@ namespace Entra21_test
 
         }
 
-        // [Theory]
-        // [InlineData(new int[10]{1, 2, 8, 4, 1, 6, 7, 8, 9, 10}, true)]
-        // // [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, false)]
-        // public void Deve_retornar_se_tem_numeros_repetidos(int[] arrayA, bool resultadoEsperado)
-        // {
-        //     //Deve retornar se existe numeros repetidos no array
+        [Theory]
+        [InlineData(new int[10]{1, 2, 8, 4, 1, 6, 7, 8, 9, 10}, true)]
+        // [InlineData(new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, false)]
+        public void Deve_retornar_se_tem_numeros_repetidos(int[] arrayA, bool resultadoEsperado)
+        {
+            //Deve retornar se existe numeros repetidos no array
 
-        //     var exercicios = new Exercicios();
-        //     var resultado = exercicios.Exercicio2_02(arrayA);
-        //     Assert.Equal(resultadoEsperado, resultado);
-        // }
+            var exercicios = new Exercicios();
+            var resultado = exercicios.Exercicio2_02(arrayA);
+            Assert.Equal(resultadoEsperado, resultado);
+        }
 
         [Theory]
         [InlineData(new int[5]{2,2,3,5,2}, 8)]

@@ -4,60 +4,98 @@ namespace Entra21_test
 {
     public class Exercicios
     {
-        private const bool V = true;
-
-        public double Exercicio7(int cigarrosPorDia, int anos, double preco)
+        //inicio lista 1
+        public double[] Exercicio01(double[] arrayA, double[] arrayB, double[] arrayC)
         {
-                //Calcular a quantidade de dinheiro gasta por um fumante. 
-                //Dados: o numero de anos que ele fuma, o nº de cigarros fumados por 
-                //dia e o preço de uma carteira.
+            //Ler dois arrays A e B com 10 elementos. construir uma array , onde cada elemento de C é a 
+            //subtração dos elementos de A e B
 
-               var cigarroAnual = 0.0;
-               var varejo = (preco / 20);
-               cigarroAnual = (varejo * cigarrosPorDia) * 365;
-               double total = (cigarroAnual * anos);
-               return total;   
-        }
-
-        public int Exercicio5(List<int> idades)
-        {
-            //Criar um algoritmo que peça o nome e a idade de 5 mulheres. Após 
-            //informar estes dados, o programa deve mostrar apenas porcentagem de
-            // mulheres que estão com idade entre 18 e 35
-            var total = 0;
-            var mulheres = 0;
-            foreach (var item in idades)
+            for(int i = 0; i < arrayB.Length; i++)
             {
-                
-                if(item > 17 && item < 36)
+                arrayC[i] = arrayA[i] - arrayB[i];
+            }
+
+            return arrayC;
+
+        }
+
+        // public void Exercicio02()  
+        // {
+        //     // Ler um array com 10 inteiros e mostrar os números na ordem direta e 
+        //     //inversa a que foram lidos.
+        // }
+
+        public bool Exercicio3(int[] arrayA, int numero)
+        {
+            //Leia 10 elementos e armazene em um array A. Em seguida, solicite pelo 
+            //teclado um número qualquer e pesquise no array se o número existe.
+
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+
+                if(numero == arrayA[i])
                 {
-                    mulheres += idades.Count;
+                    return true;
                 }
-            }   
-            total = (mulheres *100 / 25);
+
+            }
+            return false;
+         
+        }
+
+          public bool Exercicio4(int[] arrayA, int[] arrayB)
+        {
+            //Leia dois arrays A e B com 10 elementos. Em seguida, compare os arrays e verifique se
+            // os mesmos são iguais ou diferentes.
+
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] != arrayB[i])
+                {
+                   return false;
+                }
+                
+            }
+            return true;
             
-            return total;
-        
-        } 
-
-        public int Exercicio03(List<int> Lista)
-        {
-            //Imprimir todo os números ímpares menores de 200.
-            var impares = 0;
-            impares = Lista.Count;
-
-            return impares;
         }
 
-        public bool Exercicio08(int numero1, int numero2)
+        public int[] Exercicio05(double[] array) //Sem test
         {
-            bool  multiplo  =  true ;
-            multiplo = numero1 % numero2 == 0;
+            //Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, 
+            //em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
 
-            return multiplo;
+            var resultado = new int[3];
+            double media = 0.0;
+            double soma = 0.0; 
+            for(int i = 0; i < array.Length; i++)
+            {
+                soma += array[i];
+            }
+
+            media = soma / array.Length;
+
+            foreach( var item in array)
+            {
+                if(item < media)
+                {
+                    resultado[0] ++;
+                }
+                if(item == media)
+                {
+                    resultado[1] ++;
+                }
+                if(item > media)
+                {
+                    resultado[2] ++;
+                }
+            }
+            return resultado;
         }
+        // fim lista 1
 
-        public int[] Exercicio01A()
+        //inicio lista 2
+         public int[] Exercicio01A()
         {
             var numeros = new int[10];
 
@@ -96,57 +134,93 @@ namespace Entra21_test
             return numeros;
         }
 
-        public string Exercicio03(double[] array, double numero)
+        public int Exercicio02()
         {
-            //Leia 10 elementos e armazene em um array A. Em seguida, solicite pelo 
-            //teclado um número qualquer e pesquise no array se o número existe.
+            //Imprimir a soma dos números inteiros de 1 a 100
 
-            var resultado = "O número não existe no array";
+            int soma = 0;
 
-            for(int i = 0; i < array.Length; i++)
+            for(int i = 0; i < 101; i++)
             {
-                if(array.Length == numero)
-                {
-                    resultado = "O número existe no array";
-                    return resultado;
-                }
+                soma += i;
             }
-
-            return resultado;
+            return soma;
         }
 
-        public int[] Exercicio04(double[] array)
+        public int Exercicio03(List<int> Lista)
         {
-            //Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, 
-            //em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
+            //Imprimir todo os números ímpares menores de 200.
+            var impares = 0;
+            impares = Lista.Count;
 
-            var resultado = new int[3];
-            double media = 0.0;
-            double soma = 0.0; 
-            for(int i = 0; i < array.Length; i++)
-            {
-                soma += array[i];
-            }
-
-            media = soma / array.Length;
-
-            foreach( var item in array)
-            {
-                if(item < media)
-                {
-                    resultado[0] ++;
-                }
-                if(item == media)
-                {
-                    resultado[1] ++;
-                }
-                if(item > media)
-                {
-                    resultado[2] ++;
-                }
-            }
-            return resultado;
+            return impares;
         }
+
+        // public void Exercicio04()
+        // {
+        //     //Calcular a média de idade de uma turma qualquer. O algoritmo deve parar 
+        //     //quando for digitada a idade igual a zero.
+        // }
+
+              public int Exercicio5(List<int> idades)
+        {
+            //Criar um algoritmo que peça o nome e a idade de 5 mulheres. Após 
+            //informar estes dados, o programa deve mostrar apenas porcentagem de
+            // mulheres que estão com idade entre 18 e 35
+            var total = 0;
+            var mulheres = 0;
+            foreach (var item in idades)
+            {
+                
+                if(item > 17 && item < 36)
+                {
+                    mulheres += idades.Count;
+                }
+            }   
+            total = (mulheres *100 / 25);
+            
+            return total;
+        
+        } 
+
+        //exercicio 06 --  eleiçoes
+   
+        private const bool V = true;
+        public double Exercicio7(int cigarrosPorDia, int anos, double preco)
+        {
+                //Calcular a quantidade de dinheiro gasta por um fumante. 
+                //Dados: o numero de anos que ele fuma, o nº de cigarros fumados por 
+                //dia e o preço de uma carteira.
+
+               var cigarroAnual = 0.0;
+               var varejo = (preco / 20);
+               cigarroAnual = (varejo * cigarrosPorDia) * 365;
+               double total = (cigarroAnual * anos);
+               return total;   
+        }
+        
+        public bool Exercício08(int numero1, int numero2)
+        {
+            //Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+
+            if(numero1 % numero2 == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        // fim lista 2
+
+        public bool Exercicio08(int numero1, int numero2)
+        {
+            bool  multiplo  =  true ;
+            multiplo = numero1 % numero2 == 0;
+
+            return multiplo;
+        }
+
 
         public double Exercicio16(double salario)
         {
@@ -238,45 +312,7 @@ namespace Entra21_test
             return false;
         }
 
-        public bool Exercício08(int numero1, int numero2)
-        {
-            //Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
-
-            if(numero1 % numero2 == 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public double[] Exercicio01(double[] arrayA, double[] arrayB, double[] arrayC)
-        {
-            //Ler dois arrays A e B com 10 elementos. construir uma array , onde cada elemento de C é a 
-            //subtração dos elementos de A e B
-
-            for(int i = 0; i < arrayB.Length; i++)
-            {
-                arrayC[i] = arrayA[i] - arrayB[i];
-            }
-
-            return arrayC;
-
-        }
-
-        
-        public int Exercicio02()
-        {
-            //Imprimir a soma dos números inteiros de 1 a 100
-
-            int soma = 0;
-
-            for(int i = 0; i < 101; i++)
-            {
-                soma += i;
-            }
-            return soma;
-        }
+      
         
         public int[] Exercicio17(int numero)
         {
@@ -290,40 +326,9 @@ namespace Entra21_test
             return valorTabuada;
         }
 
-        public bool Exercicio3(int[] arrayA, int numero)
-        {
-            //Leia 10 elementos e armazene em um array A. Em seguida, solicite pelo 
-            //teclado um número qualquer e pesquise no array se o número existe.
+      
 
-            for(int i = 0; i < arrayA.Length; i++)
-            {
-
-                if(numero == arrayA[i])
-                {
-                    return true;
-                }
-
-            }
-            return false;
-         
-        }
-
-        public bool Exercicio4(int[] arrayA, int[] arrayB)
-        {
-            //Leia dois arrays A e B com 10 elementos. Em seguida, compare os arrays e verifique se
-            // os mesmos são iguais ou diferentes.
-
-            for(int i = 0; i < arrayA.Length; i++)
-            {
-                if(arrayA[i] != arrayB[i])
-                {
-                   return false;
-                }
-                
-            }
-            return true;
-            
-        }
+      
 
         public (int[], int[]) Exercicio2_01(int[] arrayA, int[] arrayB)
         {
@@ -342,21 +347,21 @@ namespace Entra21_test
             return (arrayA, arrayB);
         }
 
-        // public bool Exercicio2_02(int[] arrayA)
-        // {
-        //     //receber um vetor com 10 valores. Após esta operação, 
-        //     //informe se há ou não números repetidos nesse vetor.
+        public bool Exercicio2_02(int[] arrayA)
+        {
+            //receber um vetor com 10 valores. Após esta operação, 
+            //informe se há ou não números repetidos nesse vetor.
 
-        //     for(int i = 0; i < arrayA.Length; i++)
-        //     {
-        //         if(arrayA[i] == arrayA[i])
-        //         {
-        //             return true;
-        //         }
+            for(int i = 0; i < arrayA.Length; i++)
+            {
+                if(arrayA[i] == arrayA[i])
+                {
+                    return true;
+                }
                
-        //     }
-        //     return false;
-        // }
+            }
+            return false;
+        }
 
         // public void Exercicio2_03() 
         // {
